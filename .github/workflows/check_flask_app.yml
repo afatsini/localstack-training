@@ -40,8 +40,7 @@ jobs:
         env:
           TF_LOG: "DEBUG"
         run: |
-          ls -la
-          tflocal init -v
+          terraform init
           tflocal apply -auto-approve
 
       - name: Run Flask Server
