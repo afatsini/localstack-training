@@ -37,8 +37,6 @@ jobs:
           terraform_version: "1.10.5"
 
       - name: Terraform
-        env:
-          TF_LOG: "DEBUG"
         run: |
           terraform init
           tflocal apply -auto-approve
