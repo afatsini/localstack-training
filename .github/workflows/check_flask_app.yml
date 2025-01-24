@@ -25,15 +25,23 @@ jobs:
             docker-compose --version
 
       - name: Start localstack
-        run: docker-compose up -f docker/docker-compose.yml -d
+        run: docker compose -f docker/docker-compose.yml up -d
 
       - name: Install Dependencies
         run: |
           pip install Flask boto3 terraform-local
+    
+      - name: Install terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.1.7"
 
       - name: Terraform
+        env:
+          TF_LOG: "DEBUG"
         run: |
-          tflocal init
+          ls -la
+          tflocal init -v
           tflocal apply -auto-approve
 
       - name: Run Flask Server
