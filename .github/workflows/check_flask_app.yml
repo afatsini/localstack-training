@@ -46,7 +46,7 @@ jobs:
       - name: Run Flask Server
         run: |
           # Start the Flask server in the background
-          python s3_server.py &  # Make sure s3_server.py is in the root of your repo or adjust the path accordingly
+          python create_bucket.py &  # Make sure s3_server.py is in the root of your repo or adjust the path accordingly
           
           # Wait for the server to start
           sleep 5
