@@ -54,7 +54,7 @@ jobs:
       - name: Test Server Output
         run: |
           # Use curl to check the server output
-          output=$(curl -s http://127.0.0.1:5000)
+          output=$(curl -s http://127.0.0.1:8888)
           echo "$output"  # Print the output for debugging purposes
           if [[ "$output" != *"It works!"* ]]; then
             echo "Output did not match expected content."

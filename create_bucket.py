@@ -14,7 +14,10 @@ def assume_role(role_arn, session_name):
     """
     Assumes the specified IAM role.
     """
-    sts_client = boto3.client('sts', endpoint_url='http://localhost:4566', region_name='us-east-1')
+    sts_client = boto3.client('sts', endpoint_url='http://localhost:4566',
+        region_name='us-east-1',
+        aws_access_key_id="test",
+        aws_secret_access_key="test")
     
     response = sts_client.assume_role(
         RoleArn=role_arn,
